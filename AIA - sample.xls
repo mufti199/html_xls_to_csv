@@ -1,0 +1,600 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html xmlns:x="urn:schemas-microsoft-com:office:excel">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+		
+		<title>AIA</title>
+		<style>
+			body {
+				font-family: Arial, Helvetica, sans-serif;
+				font-size: 12px;
+				line-height: 16px;
+				color: #000000;
+				background-color: #FFFFFF;
+				margin: 10px;
+			}
+			#bodyMain{
+				width:100%;
+				vertical-align:top;
+				padding-top: 10px;
+			}
+			#bodyMain table{
+				width:100%;
+				vertical-align:top;
+			}
+			#bodyMain td{
+				font-family: Arial, Helvetica, sans-serif;
+				font-size: 11px;
+				line-height: 16px;
+				color: #000000;
+			}
+			#bodyMain #tableStyle1{
+			
+			}
+			#bodyMain #tableStyle1 th{
+				font-family: Arial, Helvetica, sans-serif;
+				font-size: 12px;
+				line-height: 16px;
+				font-weight: bold;
+				color: #ffffff;
+				background-color: #888888;
+				padding-top: 5px;
+				padding-right: 8px;
+				padding-bottom: 5px;
+				padding-left: 8px;
+				border-right-style: solid;
+				border-bottom-style: solid;
+				border-right-color: #CCCCCC;
+				border-bottom-color: #CCCCCC;
+				border-left-style: solid;
+				border-left-color: #888888;
+				border-right-width: 1px;
+				border-bottom-width: 1px;
+				border-left-width: 1px;
+				text-align:left; 
+			}
+			#bodyMain #tableStyle1 .th2{
+				font-family: Arial, Helvetica, sans-serif;
+				font-size: 12px;
+				line-height: 16px;
+				font-weight: bold;
+				color: #ffffff;
+				background-color: #888888;
+				padding-top: 5px;
+				padding-right: 8px;
+				padding-bottom: 5px;
+				padding-left: 8px;
+				border-right-style: solid;
+				border-bottom-style: solid;
+				border-right-color: #CCCCCC;
+				border-bottom-color: #CCCCCC;
+				border-left-style: solid;
+				border-left-color: #888888;
+				border-right-width: 1px;
+				border-bottom-width: 1px;
+				border-left-width: 1px;
+				text-align:right; 
+			}
+			#bodyMain #tableStyle1 thead td{
+				font-family: Arial, Helvetica, sans-serif;
+				font-size: 12px;
+				line-height: 16px;
+				font-weight: bold;
+				color: #FFFFFF;
+				background-color: #BE0F34;
+				padding-top: 4px;
+				padding-right: 8px;
+				padding-bottom: 5px;
+				padding-left: 25px;
+				background-attachment: scroll;
+				background-image: url(../images/arrow4.gif);
+				background-repeat: no-repeat;
+				background-position: left top;
+				vertical-align: top;
+			}
+			#bodyMain #tableStyle1 tBody .contentArrow{
+				background-color: #f0f0f0;
+				border-right-width: 1px;
+				border-bottom-width: 1px;
+				border-right-style: solid;
+				border-bottom-style: solid;
+				border-right-color: #999999;
+				border-bottom-color: #999999;
+				padding-top: 5px;
+				padding-right: 8px;
+				padding-bottom: 5px;
+				padding-left: 25px;
+				background-attachment: scroll;
+				background-image: url(../images/arrow3.gif);
+				background-repeat: no-repeat;
+				background-position: left top;
+				vertical-align: top;
+			}
+			#bodyMain #tableStyle1 tBody td {
+				background-color: #f0f0f0;
+				border-right-width: 1px;
+				border-bottom-width: 1px;
+				border-right-style: solid;
+				border-bottom-style: solid;
+				border-right-color: #999999;
+				border-bottom-color: #999999;
+				padding-top: 3px;
+				padding-right: 8px;
+				padding-bottom: 2px;
+				padding-left: 8px;
+					vertical-align: top;
+						text-align:left;
+			}
+			#bodyMain #tableStyle1 tBody .td2 {
+				background-color: #f0f0f0;
+				border-right-width: 1px;
+				border-bottom-width: 1px;
+				border-right-style: solid;
+				border-bottom-style: solid;
+				border-right-color: #999999;
+				border-bottom-color: #999999;
+				padding-top: 3px;
+				padding-right: 8px;
+				padding-bottom: 2px;
+				padding-left: 8px;
+					vertical-align: top;
+						text-align:right;
+			}
+			#bodyMain #tableStyle1 tBody td a {
+				font-family: Arial, Helvetica, sans-serif;
+				font-size: 11px;
+				line-height: 15px;
+				color: #000000;
+				text-decoration: underline;
+			}
+			#bodyMain #tableStyle1 tBody td a:hover {
+				font-family: Arial, Helvetica, sans-serif;
+				font-size: 11px;
+				line-height: 15px;
+				color: #000000;
+				text-decoration: none;
+			}
+			#bodyMain .tableFix{
+				width: 300px;
+				vertical-align:top;
+				padding:0px;
+				border-width:0px;
+				padding: 10px;
+			}
+			#bodyMain .tableFix td{
+				text-align:left;
+			}
+			#bodyMain .pageHeading{
+				font-family: Arial, Helvetica, sans-serif;
+				font-size: 24px;
+				color: #BE0F34;
+				text-decoration: none;
+				line-height: 25px;
+				padding-bottom: 5px;
+				vertical-align:top;
+				background-color:#C0C0C0;
+				font-weight:bold;
+			}
+			#bodyMain .disclaimer{
+				font-family: Arial, Helvetica, sans-serif;
+				font-size: 24px;
+				color: #000000;
+				text-decoration: none;
+				line-height: 25px;
+				padding-bottom: 5px;
+				vertical-align:top;
+				background-color:#FFFFFF;
+				font-weight:bold;
+			}
+
+		.xl32
+			{mso-style-parent:style0;
+			color:black;
+			font-size:8.0pt;
+			font-family:Arial, sans-serif;
+			mso-font-charset:0;
+			mso-number-format:"\0022$\0022\#\,\#\#0\;\[Red\]\\-\0022$\0022\#\,\#\#0";
+			text-align:right;
+			vertical-align:top;
+			border-top:none;
+			border-right:1.0pt solid #969696;
+			border-bottom:none;
+			border-left:none;
+			background:white;
+			mso-pattern:auto none;
+			white-space:normal;}
+		
+		.xl54
+			{mso-style-parent:style0;
+			color:black;
+			font-size:8.0pt;
+			font-family:Arial, sans-serif;
+			mso-font-charset:0;
+			mso-number-format:"dd\/mm\/yyyy";
+			text-align:left;
+			vertical-align:top;
+			border-top:1.0pt solid #969696;
+			border-right:1.0pt solid #969696;
+			border-bottom:none;
+			border-left:1.0pt solid #969696;
+			background:white;
+			mso-pattern:auto none;
+			white-space:normal;}
+			.xl55
+				{
+				color:black;
+				font-size:8.0pt;
+				font-family:Arial, sans-serif;
+				mso-font-charset:0;
+				mso-number-format:"0\.0";
+				vertical-align:top;
+				border-top:none;
+				border-right:1.0pt solid #969696;
+				border-bottom:1.0pt solid #969696;
+				border-left:none;
+				background:white;
+				mso-pattern:auto none;
+				white-space:normal;}
+			
+		</style>
+		<xml>
+			<x:ExcelWorkbook>
+				<x:ExcelWorksheets>
+					<x:ExcelWorksheet>
+						<x:Name>Report</x:Name>
+			
+						<x:WorksheetOptions>
+							<x:Selected />
+						</x:WorksheetOptions>
+					</x:ExcelWorksheet>
+				</x:ExcelWorksheets>
+			</x:ExcelWorkbook>
+		</xml>
+	</head>
+	
+
+<body>
+
+							
+										
+		<table cellspacing="0" id="bodyMain">
+		  <tr>
+		    <td class="pageHeading">Detailed Policy Result</td>
+		  </tr>
+		  <tr>
+		    <td>&nbsp;</td>
+		  </tr>
+	  
+		  <tr>
+		    <td>
+		      <table cellspacing="0" id="tableStyle1">
+		        <thead>
+		          <tr>
+		   			<td colspan="37">&nbsp;</td>
+		          </tr>
+		        </thead>
+		      
+		        
+		        
+			      <tr>
+			        <th x:autofilter="all">Adviser Name</th>
+			        <th x:autofilter="all">Adviser Code</th>
+			        <th x:autofilter="all">Insured Name</th>
+			        <th x:autofilter="all">Policy Owner</th>
+			        <th x:autofilter="all">Policy No</th>
+			        <th x:autofilter="all">Status</th>
+			        <th x:autofilter="all">Insured DOB</th>
+			        <th x:autofilter="all">Product</th>
+			        <th x:autofilter="all">Benefits</th>
+			        <th x:autofilter="all" class="th2" style="text-align:left">Sum Insured</th>
+			        <th x:autofilter="all" class="th2" style="text-align:left">Premium Payable</th>
+			        <th x:autofilter="all" class="th2" style="text-align:left">Stamp Duty</th>
+			        <th x:autofilter="all" class="th2" style="text-align:left">Total Premium</th>
+                    <th x:autofilter="all" class="th2" style="text-align:left">Policy Fee</th>
+                    <th x:autofilter="all" class="th2" style="text-align:left">Total Premium Including Policy Fee</th>
+                    <th x:autofilter="all">Less 15% Super Rebate</th>
+                    <th x:autofilter="all">Total Net Payable</th>                    
+			        <th x:autofilter="all">Premium Structure</th>
+					<th x:autofilter="all">Waiting Period</th>			        
+			        <th x:autofilter="all">Benefit Period</th>
+			        <th x:autofilter="all">Billing Mode</th>
+			        <th x:autofilter="all">Issued</th>
+			        <th x:autofilter="all">Paid To</th>
+			        <th x:autofilter="all">Premium Due Date</th>
+			        <th x:autofilter="all">Maturity / Expiry</th>
+			        <th x:autofilter="all">Owner Address</th>					
+			        <th x:autofilter="all">Owner Mobile Phone</th>
+					<th x:autofilter="all">Owner Work Phone</th>			        
+			        <th x:autofilter="all">Owner Home Phone</th>		
+					
+					<th x:autofilter="all">Vitality Applied</th>
+					
+					<th x:autofilter="all">Enduring Authority</th>
+					<th x:autofilter="all">Occupation Category</th>
+
+					  <th x:autofilter="all">Annual Vitality Discount (If the client has Vitality)</th>
+					  <th x:autofilter="all">Health Policy</th>
+					  <th x:autofilter="all">Annual Health & Life Discount (Policy)</th>
+					  <th x:autofilter="all">Estimated Annual Health & Life Discount (Policy)<span style="color:red">*</span></th>
+					  <th x:autofilter="all">Estimated Annual Vitality Discount (If the client doesn�t have Vitality)<span style="color:red">*</span></th>
+
+
+				  </tr>
+			      <tbody>
+			      	
+			      		<tr valign="top">	
+			      		    <td>SYNCHRON: VERDURE FINANCIAL   </td>
+			      		    <td>3B2980576</td>					
+							<td>CLARKE, MR CHRISTOPHER</td>
+							<td>CLARKE, MR CHRISTOPHER</td>
+							<td>12572378</td>
+							<td>In Force</td>							
+							<td class="xl54">	
+								08/07/1961
+							</td>
+							<td>CRISIS REC STAL</td>
+							<td>PRIORITY PROTECTION-Stepped Prem, CR Stal, Band 45+, Exp 70 </td>
+							<td>100315.7</td>
+							<td>257.76</td>
+							<td>26.55</td>
+							<td>284.31</td>
+							<td>
+							    
+							        
+							        7.7
+							    
+							</td>
+																						
+                            <td>292.01</td>	
+                            
+							    
+	                            
+		                            <td></td>
+		                            <td></td>
+	                            
+							                            
+							<td>Stepped</td>
+							<td></td>
+							<td></td>
+							<td>Monthly</td>
+							<td class="xl54">	
+								23/03/2006
+							</td>
+							<td class="xl54">	
+								23/09/2021
+							</td>
+							<td class="xl54">	
+								23/09/2021
+							</td>
+							<td class="xl54">	
+								23/03/2031
+							</td>
+							<td>2 SOME AVENUE  SOMEWHEREVILLE, Victoria, 3123</td>																
+							<td>0400 000 000        </td>
+							<td>                    </td>
+							<td>                    </td>
+							
+							<td>N</td>
+							
+							<td>N/A</td>
+							<td>          </td>
+
+							<td>0</td>
+							<td>N</td>
+							<td>0</td>
+
+							
+								
+								
+									<td>143.2</td>
+								
+							
+							
+								
+								
+									<td>358</td>
+								
+							
+
+						</tr>
+					
+			      		<tr valign="top">	
+			      		    <td>SYNCHRON: VERDURE FINANCIAL   </td>
+			      		    <td>3B2980576</td>					
+							<td>CLARK, MR KENT</td>
+							<td>CLARK, MR KENT</td>
+							<td>12572378</td>
+							<td>Benefits Terminated</td>							
+							<td class="xl54">	
+								08/07/1961
+							</td>
+							<td>TERM LIFE (BAS)</td>
+							<td>PRIORITY PROTECTION-YRT CLASS 2+, Disc Band 45-54, Exp 100  </td>
+							<td>532095.1</td>
+							<td>87.35</td>
+							<td>0.0</td>
+							<td>87.35</td>
+							<td>
+							    
+							        -
+							        
+							    
+							</td>
+																						
+                            <td>87.35</td>	
+                            
+							    
+	                            
+		                            <td></td>
+		                            <td></td>
+	                            
+							                            
+							<td>Stepped</td>
+							<td></td>
+							<td></td>
+							<td>Monthly</td>
+							<td class="xl54">	
+								23/03/2006
+							</td>
+							<td class="xl54">	
+								23/09/2021
+							</td>
+							<td class="xl54">	
+								23/09/2021
+							</td>
+							<td class="xl54">	
+								01/09/2011
+							</td>
+							<td>2 SOME AVENUE  SOMEWHEREVILLE, Victoria, 3123</td>													
+							<td>0400 000 000        </td>
+							<td>                    </td>
+							<td>                    </td>
+							
+							<td>N</td>
+							
+							<td>N/A</td>
+							<td>          </td>
+
+							<td></td>
+							<td></td>
+							<td></td>
+
+							
+								
+								
+									<td></td>
+								
+							
+							
+								
+								
+									<td></td>
+								
+							
+
+						</tr>
+					
+			      		<tr valign="top">	
+			      		    <td>SYNCHRON: VERDURE FINANCIAL   </td>
+			      		    <td>3B2980576</td>					
+							<td>CLARK, MR KENT</td>
+							<td>CLARK, MR KENT</td>
+							<td>12572378</td>
+							<td>Benefits Terminated</td>							
+							<td class="xl54">	
+								08/07/1961
+							</td>
+							<td>BUY BACK OPTION</td>
+							<td>PRIORITY PROTECTION-Stepped Prem, Buy Back option,Exp 65    </td>
+							<td>61585.1</td>
+							<td>2.59</td>
+							<td></td>
+							<td>2.59</td>
+							<td>
+							    
+							        -
+							        
+							    
+							</td>
+																						
+                            <td>2.59</td>	
+                            
+							    
+	                            
+		                            <td></td>
+		                            <td></td>
+	                            
+							                            
+							<td>Stepped</td>
+							<td></td>
+							<td></td>
+							<td>Monthly</td>
+							<td class="xl54">	
+								23/03/2006
+							</td>
+							<td class="xl54">	
+								23/09/2021
+							</td>
+							<td class="xl54">	
+								23/09/2021
+							</td>
+							<td class="xl54">	
+								01/09/2011
+							</td>
+							<td>2 SOME AVENUE  SOMEWHEREVILLE, Victoria, 3123</td>														
+							<td>0400 000 000        </td>
+							<td>                    </td>
+							<td>                    </td>
+							
+							<td>N</td>
+							
+							<td>N/A</td>
+							<td>          </td>
+
+							<td></td>
+							<td></td>
+							<td></td>
+
+							
+								
+								
+									<td></td>
+								
+							
+							
+								
+								
+									<td></td>
+								
+							
+
+						</tr>
+					
+			  	</tbody>	
+			  	
+			  	
+		      
+		  </table>
+		</td>
+      </tr>
+		<tr valign="top">
+			<td></td>
+		</tr>
+		<tr valign="top">
+			<td class="disclaimer">Disclaimer</td>
+		</tr>
+		<tr valign="top">
+			<td></td>
+		</tr>
+		<tr valign="top">
+			<td colspan="4" style="font-size: 14px">
+				<p><span style="color:red">*</span>Estimate only based on current premiums. If you proceed and purchase an AIA Health with AIA Vitality policy for the<br>
+					same life insured, a 5% Health and Life discount will be applied to the Lump Sum and Income Protection premiums at the<br>
+					next billing cycle date. As AIA Vitality is included in the life insured?s health insurance policy, a 12.5% AIA Vitality discount<br>
+					will be applied to the Lump Sum, and a 7.5% AIA Vitality discount will be applied to Income Protection premiums at the next<br>
+					billing cycle date. The AIA Vitality Contribution Fee will also be waived for the PP policy. If the AIA Vitality Contribution Fee<br>
+					is paid before the health policy commences, it will be refunded or pro-rata refunded, as applicable. If the health policy is<br>
+					cancelled later for any reason, the 5% Health and Life premium discount will cease to apply, and the AIA Vitality<br>
+					Contribution Fee must be paid to maintain membership of AIA Vitality and receive any applicable discounts on premiums.</p>
+			</td>
+		</tr>
+      </table>
+
+</body>
+</html>
