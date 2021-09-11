@@ -6,7 +6,7 @@ try{
 
   $xls = "./AIA - sample.xls";
   $html = "./AIA - sample copy.html";
-  $csvFileName=AiaXlsFileConverter::convertToCsv("123ab.xls");
+  $csvFileName=AiaXlsFileConverter::convertToCsv($xls);
 
   echo "Success: $csvFileName";
 

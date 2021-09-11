@@ -61,24 +61,29 @@ class AiaXlsFileConverter {
         $filename = preg_replace("/\.[^.]+$/", ".csv", $directory);
         $file = fopen("$filename", "w");
         foreach($tables as $table) {
-          $heads = $table->getElementsByTagName('th');
-          $headLength = count($heads);
-          $headNum = 1;
+          // $heads = $table->getElementsByTagName('th');
+          // $headLength = count($heads);
+          // $headNum = 1;
           
-          $rows = $table->getElementsByTagName('tr'); 
+          $rows = $table->getElementsByTagName('tr');
           foreach ($rows as $row) {
             $cols = $row->getElementsByTagName('td');
+            // print_r($row);
+            print_r($cols);
             $colLength = count($cols);
             $colNum = 1;
             foreach ($cols as $col) {
-              $col = $col->nodeValue;
+              $col = trim($col->textContent);
+              echo $col;
+              echo("END OF COL!!\n");
               if ($colNum == $colLength) {
-                fwrite($file, "$col\n");
+                fwrite($file, "$col");
               } else {
                 fwrite($file, "$col,");
               }
               $colNum++;
             }
+            fwrite($file, "\n");
           }
         }
         fclose($file);
@@ -114,7 +119,7 @@ class AiaXlsFileConverter {
     if (count($tables) == 0) {
       throw new Exception("Invalid html file. No TABLE tags found.\n");
     }
-    return $fileContent;
+    return $tables;
   }
 
   /* Writes data from an array into a csv file
