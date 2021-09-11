@@ -124,21 +124,11 @@ class AiaXlsFileConverter {
       throw new Exception("Invalid html file. No TABLE tags found.\n");
     }
     // Filter out the nested tables
-    // print_r($tables->item(0)->getElementsByTagName('tr')->item(2)); // Replace the tr element
-
     $tableArray = array($tables->item(0));
     for ($i = 0; $i < $tableCount - 1; $i++) {
-      $prevTable = $tables->item($i);
-      $currTable = $tables->item($i + 1);
-      if (str_contains($prevTable->textContent, $currTable->textContent)) {
-        $elementIndex = 0;
-        foreach($prevTable->getElementsByTagName("tr") as $element) {
-          if (str_contains($element->textContent, $currTable->textContent)) {
-            print_r($element->getElementsByTagName("table")->item(0));
-            //$tables->item($i)->getElementsByTagName("tr")->item($elementIndex) = $currTable;
-          }
-          $elementIndex++;
-        }
+      if (! strpos($tables->item($i)->textContent, $tables->item($i + 1)->textContent)) {
+        $var = $tables->item($i+1);
+        array_push($tableArray, $var);
       }
     }
     return $tableArray;
