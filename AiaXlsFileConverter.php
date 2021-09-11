@@ -57,30 +57,26 @@ class AiaXlsFileConverter {
       if ($error->getMessage() == "Unable to read file!\n") {
         throw $error;
       } else {
-        $tables = self::getHtmlTables($directory);
+        $fileContent = self::getHtmlTables($directory);
         $filename = preg_replace("/\.[^.]+$/", ".csv", $directory);
         $file = fopen("$filename", "w");
-        foreach($tables as $table) {
-          $heads = $table->getElementsByTagName('th');
-          $headLength = count($heads);
-          $headNum = 1;
-          
-          $rows = $table->getElementsByTagName('tr'); 
-          foreach ($rows as $row) {
-            $cols = $row->getElementsByTagName('td');
-            $colLength = count($cols);
-            $colNum = 1;
-            foreach ($cols as $col) {
-              $col = $col->nodeValue;
-              if ($colNum == $colLength) {
-                fwrite($file, "$col\n");
-              } else {
-                fwrite($file, "$col,");
-              }
-              $colNum++;
-            }
+
+      /*start after TABLE tag
+        do not write <text> or </text> or whitespace or \n
+        th -> heading -> ,
+        td -> column -> ,
+        tr -> row -> \n
+        */
+        // Skip lines of the file until the TABLE tag is found
+        $i = 0;
+        while($i < count($fileContent)) {
+          if (preg_match("/<table/", $fileContent[$i])) {
+            $i++;
+            break;
           }
+          $i++;
         }
+        echo $fileContent[$i]."\n";
         fclose($file);
       }
     }
@@ -94,7 +90,7 @@ class AiaXlsFileConverter {
   The html file resource, recieved from fopen or similar.
   
   .OUTPUT 
-  Returns all the tables of the file as a DOM object. */
+  Returns an array containing the entire file's content. */
   private static function getHtmlTables ($directory) {
     $file = fopen($directory, "r");
     $fileContent = fread($file, filesize($directory));
@@ -114,7 +110,7 @@ class AiaXlsFileConverter {
     if (count($tables) == 0) {
       throw new Exception("Invalid html file. No TABLE tags found.\n");
     }
-    return $fileContent;
+    return explode("\n", $fileContent);
   }
 
   /* Writes data from an array into a csv file
@@ -122,11 +118,11 @@ class AiaXlsFileConverter {
   .PARAMETER $file
   The csv_file resource, recieved from fopen or similar.
 
-  .PARAMETER $sheetData
+  .PARAMETER $rows
   A 2D array representing the (row, col) data of the spreedsheet. */
-  private static function writeToCSV ($file, $sheetData) {
+  private static function writeToCSV ($file, $rows) {
     
-    foreach ($sheetData as $row) {
+    foreach ($rows as $row) {
       $rowLength = count($row);
       $colNum = 1;
       foreach ($row as $col) {
