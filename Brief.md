@@ -3,14 +3,13 @@
 [x] Create a class AiaXlsFileConverter with method convertToCsv
 [x] The method should read except a file directory and read it
 [x] Create a new file with extension .csv after successful file validation
-[] Validaions:
+[x] Validaions:
   [x] The file has to have an extension of either html or xls
-  [x] A limit to the size of the file?
-  [] Is it a valid html file?
-    [] The file has the start and end with the <html></html> tags (Can also start with DOCTYPE)
-    [] The file has the <table></table> tags
+  [x] Is it a valid html file?
+    [x] The file has the start and end with the <html></html> tags (Can also start with DOCTYPE)
+    [x] The file has the <table></table> tags
 [x] If the file is not an html file -> read the content and write it into the .csv file 
-[] If the file is valid html file -> read the content from the table and write it into the .csv file 
+[x] If the file is valid html file -> read the content from the table and write it into the .csv file 
 
 # Brief
 

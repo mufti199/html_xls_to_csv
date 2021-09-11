@@ -2,15 +2,20 @@
 
 require_once("./AiaXlsFileConverter.php");
 
-try{
+try {
+  // Test files
+  $xls1 = "./123ab_single.xls";       // Single spreadsheet
+  $xls2 = "./123ab_multiple.xls";     // Multiple spreadSheets
+  $html1 = "./AIA - sample.xls";
+  $html2 = "./AIA - sample copy.html";
+  $other1 = "./AiaXlsFileConverter.php";
+  $other2 = "./non.existent";
 
-  $xls = "./AIA - sample.xls";
-  $html = "./AIA - sample copy.html";
-  $csvFileName=AiaXlsFileConverter::convertToCsv($xls);
+  $csvFileName=AiaXlsFileConverter::convertToCsv("");
 
   echo "Success: $csvFileName";
 
-}catch(\Exception $ex){
+} catch(Exception $ex) {
   
   echo $ex->getMessage();
 
