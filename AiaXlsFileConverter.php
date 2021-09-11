@@ -64,28 +64,25 @@ class AiaXlsFileConverter {
         $tableArray = self::getHtmlTables($directory);
         foreach($tableArray as $table) {
           // Base Case
-          if ($table->childElementCount == 0) {
-            $rows = $table->getElementsByTagName('tr');
-            foreach ($rows as $row) {
-              $cols = $row->getElementsByTagName('td');
-              //print_r($row);
-              //print_r($cols);
-              $colLength = count($cols);
-              $colNum = 1;
-              foreach ($cols as $col) {
-                $col = trim($col->textContent);
-                // echo $col;
-                // echo("END OF COL!!\n");
-                if ($colNum == $colLength) {
-                  fwrite($file, "\"$col\"\n");
-                } else {
-                  fwrite($file, "\"$col\",");
-                }
-                $colNum++;
+          $rows = $table->getElementsByTagName('tr');
+          foreach ($rows as $row) {
+            print_r($row->getElementByTagName("table"));
+            $cols = $row->getElementsByTagName('td');
+            //print_r($row);
+            //print_r($cols);
+            $colLength = count($cols);
+            $colNum = 1;
+            foreach ($cols as $col) {
+              $col = trim($col->textContent);
+              // echo $col;
+              // echo("END OF COL!!\n");
+              if ($colNum == $colLength) {
+                fwrite($file, "\"$col\"\n");
+              } else {
+                fwrite($file, "\"$col\",");
               }
+              $colNum++;
             }
-          } else {
-            // self::writeHtmlToCSV($table, )
           }
         }
         fclose($file);
