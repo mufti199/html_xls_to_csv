@@ -57,33 +57,35 @@ class AiaXlsFileConverter {
       if ($error->getMessage() == "Unable to read file!\n") {
         throw $error;
       } else {
-        $tables = self::getHtmlTables($directory);
         $filename = preg_replace("/\.[^.]+$/", ".csv", $directory);
         $file = fopen("$filename", "w");
-        foreach($tables as $table) {
-          // $heads = $table->getElementsByTagName('th');
-          // $headLength = count($heads);
-          // $headNum = 1;
-          
-          $rows = $table->getElementsByTagName('tr');
-          foreach ($rows as $row) {
-            $cols = $row->getElementsByTagName('td');
-            // print_r($row);
-            print_r($cols);
-            $colLength = count($cols);
-            $colNum = 1;
-            foreach ($cols as $col) {
-              $col = trim($col->textContent);
-              echo $col;
-              echo("END OF COL!!\n");
-              if ($colNum == $colLength) {
-                fwrite($file, "$col");
-              } else {
-                fwrite($file, "$col,");
+        // $heads = $table->getElementsByTagName('th');
+        
+        $tableArray = self::getHtmlTables($directory);
+        foreach($tableArray as $table) {
+          // Base Case
+          if ($table->childElementCount == 0) {
+            $rows = $table->getElementsByTagName('tr');
+            foreach ($rows as $row) {
+              $cols = $row->getElementsByTagName('td');
+              //print_r($row);
+              //print_r($cols);
+              $colLength = count($cols);
+              $colNum = 1;
+              foreach ($cols as $col) {
+                $col = trim($col->textContent);
+                // echo $col;
+                // echo("END OF COL!!\n");
+                if ($colNum == $colLength) {
+                  fwrite($file, "\"$col\"\n");
+                } else {
+                  fwrite($file, "\"$col\",");
+                }
+                $colNum++;
               }
-              $colNum++;
             }
-            fwrite($file, "\n");
+          } else {
+            // self::writeHtmlToCSV($table, )
           }
         }
         fclose($file);
@@ -99,7 +101,7 @@ class AiaXlsFileConverter {
   The html file resource, recieved from fopen or similar.
   
   .OUTPUT 
-  Returns all the tables of the file as a DOM object. */
+  Returns all the tables of the file in an array. */
   private static function getHtmlTables ($directory) {
     $file = fopen($directory, "r");
     $fileContent = fread($file, filesize($directory));
@@ -113,13 +115,33 @@ class AiaXlsFileConverter {
     libxml_use_internal_errors(true);
     $dom = new domDocument;
     $dom->loadHTML($fileContent);
+    $dom->preserveWhiteSpace = false;
     $tables = $dom->getElementsByTagName('table');
     fclose($file);
 
-    if (count($tables) == 0) {
+    $tableCount = count($tables);
+    if ($tableCount == 0) {
       throw new Exception("Invalid html file. No TABLE tags found.\n");
     }
-    return $tables;
+    // Filter out the nested tables
+    // print_r($tables->item(0)->getElementsByTagName('tr')->item(2)); // Replace the tr element
+
+    $tableArray = array($tables->item(0));
+    for ($i = 0; $i < $tableCount - 1; $i++) {
+      $prevTable = $tables->item($i);
+      $currTable = $tables->item($i + 1);
+      if (str_contains($prevTable->textContent, $currTable->textContent)) {
+        $elementIndex = 0;
+        foreach($prevTable->getElementsByTagName("tr") as $element) {
+          if (str_contains($element->textContent, $currTable->textContent)) {
+            print_r($element->getElementsByTagName("table")->item(0));
+            //$tables->item($i)->getElementsByTagName("tr")->item($elementIndex) = $currTable;
+          }
+          $elementIndex++;
+        }
+      }
+    }
+    return $tableArray;
   }
 
   /* Writes data from an array into a csv file
@@ -130,7 +152,6 @@ class AiaXlsFileConverter {
   .PARAMETER $sheetData
   A 2D array representing the (row, col) data of the spreedsheet. */
   private static function writeToCSV ($file, $sheetData) {
-    
     foreach ($sheetData as $row) {
       $rowLength = count($row);
       $colNum = 1;
